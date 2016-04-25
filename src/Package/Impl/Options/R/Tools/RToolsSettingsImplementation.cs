@@ -24,7 +24,6 @@ using Microsoft.VisualStudio.R.Packages.R;
 using Microsoft.VisualStudio.Shell.Interop;
 
 namespace Microsoft.VisualStudio.R.Package.Options.R {
-    [Export(typeof(IRSettings))]
     [Export(typeof(IRToolsSettings))]
     internal sealed class RToolsSettingsImplementation : IRToolsSettings {
         private const int MaxDirectoryEntries = 8;
@@ -134,6 +133,92 @@ namespace Microsoft.VisualStudio.R.Package.Options.R {
         private IDisposable SaveSettings() {
             var page = RPackage.Current.GetDialogPage(typeof(RToolsOptionsPage)) as RToolsOptionsPage;
             return Disposable.Create(() => page?.SaveSettings());
+        }
+    }
+
+    [Export(typeof(IRSettings))]
+    internal class RSettingsImplementation : IRSettings {
+        [Import]
+        private IRToolsSettings Settings;
+
+        public bool AlwaysSaveHistory {
+            get {
+                return Settings.AlwaysSaveHistory;
+            }
+
+            set {
+                Settings.AlwaysSaveHistory = value;
+            }
+        }
+
+        public bool ClearFilterOnAddHistory {
+            get {
+                return Settings.ClearFilterOnAddHistory;
+            }
+
+            set {
+                Settings.ClearFilterOnAddHistory = value;
+            }
+        }
+
+        public string CranMirror {
+            get {
+                return Settings.CranMirror;
+            }
+
+            set {
+                Settings.CranMirror = value;
+            }
+        }
+
+        public bool MultilineHistorySelection {
+            get {
+                return Settings.MultilineHistorySelection;
+            }
+
+            set {
+                Settings.MultilineHistorySelection = value;
+            }
+        }
+
+        public string RBasePath {
+            get {
+                return Settings.RBasePath;
+            }
+
+            set {
+                Settings.RBasePath = value;
+            }
+        }
+
+        public string RCommandLineArguments {
+            get {
+                return Settings.RCommandLineArguments;
+            }
+
+            set {
+                Settings.RCommandLineArguments = value;
+            }
+        }
+
+        public bool ShowPackageManagerDisclaimer {
+            get {
+                return Settings.ShowPackageManagerDisclaimer;
+            }
+
+            set {
+                Settings.ShowPackageManagerDisclaimer = value;
+            }
+        }
+
+        public string WorkingDirectory {
+            get {
+                return Settings.WorkingDirectory;
+            }
+
+            set {
+                Settings.WorkingDirectory = value;
+            }
         }
     }
 }
