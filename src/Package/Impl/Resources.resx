@@ -582,9 +582,6 @@ Supported formats are: jpg/jpeg, png, tif/tiff, bmp.</value>
   <data name="SendMailFallbackMessage" xml:space="preserve">
     <value>We will now try to open your email client with a pre-created feedback email. If the email client does not open, please send an email message to rtvsuserfeedback@microsoft.com with the following information:</value>
   </data>
-  <data name="Error_NoWebTools" xml:space="preserve">
-    <value>R Tools require Web Development Tools component which is not installed. Please go to Control Panel, click 'Uninstall Program', locate Visual Studio, right click and choose 'Change'. Set Web Development Tools checkbox to on and click Next to update your Visual Studio installation.</value>
-  </data>
   <data name="VariableGrid_Missing" xml:space="preserve">
     <value>object {0} is missing.</value>
   </data>
@@ -650,7 +647,10 @@ Additional information:
     <value>Import Dataset</value>
   </data>
   <data name="ImportData_EnterUrlTitle" xml:space="preserve">
-    <value>Import from Web URL</value>
+    <value>Import Dataset Into R Session From Web URL</value>
+  </data>
+  <data name="ImportData_EnterTextFileTitle" xml:space="preserve">
+    <value>Import Dataset Into R Session From Text File</value>
   </data>
   <data name="AutomaticValue" xml:space="preserve">
     <value>&lt;Automatic&gt;</value>
@@ -720,5 +720,45 @@ Additional information:
   </data>
   <data name="Error_UnableToDeleteVariable" xml:space="preserve">
     <value>Cannot delete variable(s). Exception {0}</value>
+  </data>
+  <data name="Settings_DefaultValue" xml:space="preserve">
+    <value>(OS Default)</value>
+  </data>
+  <data name="Settings_REngineCategory" xml:space="preserve">
+    <value>R Engine</value>
+  </data>
+  <data name="Settings_RCodePage" xml:space="preserve">
+    <value>Code page</value>
+  </data>
+  <data name="Settings_RCodePage_Description" xml:space="preserve">
+    <value>Default code page in R. Affects conversion of characters from Windows Unicode to R and back. Same as in Sys.setlocale(LC_CTYPE).</value>
+  </data>
+  <data name="VariableExplorer_ErrorEnvironment" xml:space="preserve">
+    <value>Error retrieving environment list</value>
+  </data>
+  <data name="Settings_FormatScope" xml:space="preserve">
+    <value>Format scope on }</value>
+  </data>
+  <data name="Settings_FormatScope_Description" xml:space="preserve">
+    <value>Format scope after closing curly brace was typed</value>
+  </data>
+  <data name="Settings_OsDefaultEncoding" xml:space="preserve">
+    <value>(OS Default)</value>
+  </data>
+  <data name="Error_PandocMissing" xml:space="preserve">
+    <value>Publishing markdown requires Pandoc. Please install Pandoc for Windows from http://pandoc.org/installing.html. Click OK to open the Pandoc download page in default browser. You may need to restart Visual Studio when the Pandoc setup completes.</value>
+  </data>
+  <data name="Error_PdfLatexMissing" xml:space="preserve">
+    <value>Publishing markdown to PDF requires TeX installation. Please install MiKTeX (Complete) - http://miktex.org/2.9/setup. Be sure to download the Complete installation. Click OK to open MiKTeX download page in the default browser. You may need to restart Visual Studio when the MiKTeX setup completes.
+</value>
+  </data>
+  <data name="HelpSearchTooltip" xml:space="preserve">
+    <value>Type text to search for in R Help</value>
+  </data>
+  <data name="HelpSearchWatermark" xml:space="preserve">
+    <value>Type search term</value>
+  </data>
+  <data name="VariableExplorer_ErrorEnvironment" xml:space="preserve">
+    <value>Error retrieving environment list</value>
   </data>
 </root>

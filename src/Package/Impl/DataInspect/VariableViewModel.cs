@@ -64,8 +64,6 @@ namespace Microsoft.VisualStudio.R.Package.DataInspect {
             }
         }
 
-        #region Ellipsis 
-
         private static Lazy<VariableViewModel> _ellipsis = Lazy.Create(() => {
             var instance = new VariableViewModel();
             instance.Name = string.Empty;
@@ -78,7 +76,13 @@ namespace Microsoft.VisualStudio.R.Package.DataInspect {
             get { return _ellipsis.Value; }
         }
 
-        #endregion
+        public static VariableViewModel Error(string text) {
+            var instance = new VariableViewModel();
+            instance.Name = string.Empty;
+            instance.Value = text;
+            instance.HasChildren = false;
+            return instance;
+        }
 
         private static readonly string Repr = RValueRepresentations.Str(100);
 
@@ -156,7 +160,7 @@ namespace Microsoft.VisualStudio.R.Package.DataInspect {
                 var sessionProvider = VsAppShell.Current.ExportProvider.GetExportedValue<IRSessionProvider>();
                 var session = sessionProvider.GetInteractiveWindowRSession();
                 try {
-                    return session.EvaluateAsync(Invariant($"rm({Name})"), REvaluationKind.Mutating);
+                    return session.ExecuteAsync(Invariant($"rm({Name})"));
                 } catch (RException ex) {
                     VsAppShell.Current.ShowErrorMessage(
                         string.Format(CultureInfo.InvariantCulture, Resources.Error_UnableToDeleteVariable, ex.Message));

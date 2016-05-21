@@ -349,20 +349,30 @@ namespace Microsoft.VisualStudio.R.Package {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to R Tools require Web Development Tools component which is not installed. Please go to Control Panel, click &apos;Uninstall Program&apos;, locate Visual Studio, right click and choose &apos;Change&apos;. Set Web Development Tools checkbox to on and click Next to update your Visual Studio installation..
-        /// </summary>
-        public static string Error_NoWebTools {
-            get {
-                return ResourceManager.GetString("Error_NoWebTools", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to This operation requires package {0} which is not installed or has been removed. .
         /// </summary>
         public static string Error_PackageMissing {
             get {
                 return ResourceManager.GetString("Error_PackageMissing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Publishing markdown requires Pandoc. Please install Pandoc for Windows from http://pandoc.org/installing.html. Click OK to open the Pandoc download page in default browser. You may need to restart Visual Studio when the Pandoc setup completes..
+        /// </summary>
+        public static string Error_PandocMissing {
+            get {
+                return ResourceManager.GetString("Error_PandocMissing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Publishing markdown to PDF requires TeX installation. Please install MiKTeX (Complete) - http://miktex.org/2.9/setup. Be sure to download the Complete installation. Click OK to open MiKTeX download page in the default browser. You may need to restart Visual Studio when the MiKTeX setup completes.
+        ///.
+        /// </summary>
+        public static string Error_PdfLatexMissing {
+            get {
+                return ResourceManager.GetString("Error_PdfLatexMissing", resourceCulture);
             }
         }
         
@@ -448,6 +458,24 @@ namespace Microsoft.VisualStudio.R.Package {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Type text to search for in R Help.
+        /// </summary>
+        public static string HelpSearchTooltip {
+            get {
+                return ResourceManager.GetString("HelpSearchTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type search term.
+        /// </summary>
+        public static string HelpSearchWatermark {
+            get {
+                return ResourceManager.GetString("HelpSearchWatermark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to R Help.
         /// </summary>
         public static string HelpWindowCaption {
@@ -493,7 +521,16 @@ namespace Microsoft.VisualStudio.R.Package {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Import from Web URL.
+        ///   Looks up a localized string similar to Import Dataset Into R Session From Text File.
+        /// </summary>
+        public static string ImportData_EnterTextFileTitle {
+            get {
+                return ResourceManager.GetString("ImportData_EnterTextFileTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import Dataset Into R Session From Web URL.
         /// </summary>
         public static string ImportData_EnterUrlTitle {
             get {
@@ -1193,6 +1230,15 @@ namespace Microsoft.VisualStudio.R.Package {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to (OS Default).
+        /// </summary>
+        public static string Settings_DefaultValue {
+            get {
+                return ResourceManager.GetString("Settings_DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show syntax errors.
         /// </summary>
         public static string Settings_EnableSyntaxCheck {
@@ -1225,6 +1271,24 @@ namespace Microsoft.VisualStudio.R.Package {
         public static string Settings_FormatOnPaste_Description {
             get {
                 return ResourceManager.GetString("Settings_FormatOnPaste_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Format scope on }.
+        /// </summary>
+        public static string Settings_FormatScope {
+            get {
+                return ResourceManager.GetString("Settings_FormatScope", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Format scope after closing curly brace was typed.
+        /// </summary>
+        public static string Settings_FormatScope_Description {
+            get {
+                return ResourceManager.GetString("Settings_FormatScope_Description", resourceCulture);
             }
         }
         
@@ -1319,6 +1383,15 @@ namespace Microsoft.VisualStudio.R.Package {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to (OS Default).
+        /// </summary>
+        public static string Settings_OsDefaultEncoding {
+            get {
+                return ResourceManager.GetString("Settings_OsDefaultEncoding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Match partially typed argument names.
         /// </summary>
         public static string Settings_PartialArgumentNameMatch {
@@ -1355,6 +1428,24 @@ namespace Microsoft.VisualStudio.R.Package {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Code page.
+        /// </summary>
+        public static string Settings_RCodePage {
+            get {
+                return ResourceManager.GetString("Settings_RCodePage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default code page in R. Affects conversion of characters from Windows Unicode to R and back. Same as in Sys.setlocale(LC_CTYPE)..
+        /// </summary>
+        public static string Settings_RCodePage_Description {
+            get {
+                return ResourceManager.GetString("Settings_RCodePage_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to R command line arguments.
         /// </summary>
         public static string Settings_RCommandLineArguments {
@@ -1369,6 +1460,15 @@ namespace Microsoft.VisualStudio.R.Package {
         public static string Settings_RCommandLineArguments_Description {
             get {
                 return ResourceManager.GetString("Settings_RCommandLineArguments_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to R Engine.
+        /// </summary>
+        public static string Settings_REngineCategory {
+            get {
+                return ResourceManager.GetString("Settings_REngineCategory", resourceCulture);
             }
         }
         
@@ -1675,6 +1775,15 @@ namespace Microsoft.VisualStudio.R.Package {
         public static string VariableExplorer_EnvironmentName {
             get {
                 return ResourceManager.GetString("VariableExplorer_EnvironmentName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error retrieving environment list.
+        /// </summary>
+        public static string VariableExplorer_ErrorEnvironment {
+            get {
+                return ResourceManager.GetString("VariableExplorer_ErrorEnvironment", resourceCulture);
             }
         }
         

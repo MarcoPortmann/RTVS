@@ -8,8 +8,8 @@ using System.Runtime.InteropServices;
 using Microsoft.Languages.Editor.Tasks;
 using Microsoft.R.Components.ContentTypes;
 using Microsoft.R.Components.Settings.Mirrors;
-using Microsoft.R.Debugger.Engine;
-using Microsoft.R.Debugger.Engine.PortSupplier;
+using Microsoft.R.Debugger;
+using Microsoft.R.Debugger.PortSupplier;
 using Microsoft.R.Support.Help.Functions;
 using Microsoft.VisualStudio.InteractiveWindow.Shell;
 using Microsoft.VisualStudio.ProjectSystem.FileSystemMirroring.Package.Registration;
@@ -62,7 +62,7 @@ namespace Microsoft.VisualStudio.R.Packages.R {
     [ProvideToolWindow(typeof(HelpWindowPane), Style = VsDockStyle.Linked, Window = ToolWindowGuids80.PropertiesWindow)]
     [ProvideToolWindow(typeof(HistoryWindowPane), Style = VsDockStyle.Linked, Window = ToolWindowGuids80.SolutionExplorer)]
     [ProvideToolWindow(typeof(PackageManagerWindowPane), Style = VsDockStyle.MDI)]
-    [ProvideDebugEngine(RContentTypeDefinition.LanguageName, null, typeof(AD7Engine), DebuggerGuids.DebugEngineString)]
+    [ProvideDebugEngine(RContentTypeDefinition.LanguageName, DebuggerGuids.DebugEngineString, typeof(AD7Engine), SupportsAttach = true)]
     [ProvideDebugLanguage(RContentTypeDefinition.LanguageName, DebuggerGuids.LanguageGuidString, "{D67D5DB8-3D44-4105-B4B8-47AB1BA66180}", DebuggerGuids.DebugEngineString, DebuggerGuids.CustomViewerString)]
     [ProvideDebugPortSupplier("R Interactive sessions", typeof(RDebugPortSupplier), DebuggerGuids.PortSupplierString, typeof(RDebugPortPicker))]
     [ProvideComClass(typeof(RDebugPortPicker))]
@@ -114,7 +114,6 @@ namespace Microsoft.VisualStudio.R.Packages.R {
 
             VsWpfOverrides.Apply();
             CranMirrorList.Download();
-            VerifyWebToolsInstalled();
 
             RtvsTelemetry.Initialize();
 
@@ -193,16 +192,6 @@ namespace Microsoft.VisualStudio.R.Packages.R {
         protected override WindowPane CreateToolWindow(Type toolWindowType, int id) {
             var toolWindowFactory = VsAppShell.Current.ExportProvider.GetExportedValue<RPackageToolWindowProvider>();
             return toolWindowFactory.CreateToolWindow(toolWindowType, id) ?? base.CreateToolWindow(toolWindowType, id);
-        }
-
-        private void VerifyWebToolsInstalled() {
-            Guid htmlEditorPackage = new Guid("CF49EC7D-92B1-4BBD-9254-9CC13978E82E");
-            var shell = VsAppShell.Current.GetGlobalService<IVsShell>(typeof(SVsShell));
-            int installed;
-            int hr = shell.IsPackageInstalled(ref htmlEditorPackage, out installed);
-            if (hr != VSConstants.S_OK || installed == 0) {
-                VsAppShell.Current.ShowErrorMessage(Package.Resources.Error_NoWebTools);
-            }
         }
 
         private bool IsCommandLineMode() {
